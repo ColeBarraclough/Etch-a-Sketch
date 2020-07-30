@@ -1,10 +1,24 @@
 const container = document.querySelector('#container');
 
-for (let i = 0; i < 16; i++) {
-    for(let j = 0; j < 16; j++) {
-        const square = document.createElement("div");
-        square.classList.add('square');
-        container.appendChild(square);
+function createGrid(rows, columns) {
+    let root = document.documentElement;
+    root.style.setProperty('--rows', rows);
+    root.style.setProperty('--columns', columns);
+    for (let i = 0; i < columns; i++) {
+        for(let j = 0; j < rows; j++) {
+            const square = document.createElement("div");
+            square.classList.add('square');
+            container.appendChild(square);
+            square.addEventListener('mouseenter', () => {
+                square.classList.add('hoveredSquare');
+            })
+        }
     }
 }
+
+
+createGrid(16, 16);
+
+
+
 

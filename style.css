@@ -1,10 +1,17 @@
 body {
     background-color: rgb(248, 40, 3);
 }
+:root {
+    --rows: 0;
+    --columns: 0;
+}
 #container {
+    display: grid;
+    grid-template-rows: repeat(var(--rows), 1fr);
+    grid-template-columns: repeat(var(--columns), 1fr);
     float: center;
-    height: 736px;
-    width: 736px;
+    height: 700px;
+    width: 700px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,9 +20,17 @@ body {
 }
 
 .square {
-    height: 40px;
-    width: 40px;
-    float: left;
+    height: 100%;
+    width: 100%;
+    display: block;
     border: solid;
     background-color: lightgray;
+}
+
+.hoveredSquare {
+    height: 100%;
+    width: 100%;
+    float: block;
+    border: solid;
+    background-color: gray;
 }
